@@ -26,17 +26,38 @@
           <li><a href="#detail-contact">Contact</a></li>
         </ul>
       </nav>
+
+      <label for="nav-mobile-input" class="icon-nav"
+        ><i class="fa fa-bars"></i
+      ></label>
+      <input type="checkbox" id="nav-mobile-input" />
+      <label for="nav-mobile-input" class="nav-overlay"></label>
+      <div class="nav-mobile">
+        <label for="nav-mobile-input" class="nav-mobile-close">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </label>
+        <nav>
+          <ul>
+            <li>
+              <a href="#detail-skills">Skills</a>
+            </li>
+            <!-- <li>
+              <label for="nav-mobile-input"
+                ><a href="#detail-skills">Skills</a></label
+              >
+            </li> -->
+            <li><a href="#detail-experience"> Experience</a></li>
+            <li><a href="#detail-education">Education</a></li>
+            <li><a href="#detail-contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main>
       <!-- Left side -->
       <aside id="sider-left">
         <section id="info-avatar">
-          <img
-            src="./images/avatar.jpg"
-            alt="my avatar"
-            width="250px"
-            height="250px"
-          />
+          <img src="./images/avatar.jpg" alt="my avatar" />
           <h2 class="avatar-name">Le Quoc Cu</h2>
           <p id="career">Web design & Database</p>
         </section>
@@ -307,8 +328,12 @@
           <textarea name="content" cols="100" rows="4"></textarea>
           <br />
           <div class="contact-send">
-            <input type="submit" id="send" value="Send Message" />
-            <i class="fa fa-paper-plane"></i>
+            <button type="submit" id="send">
+              <p class="send-message">
+                <i class="fa fa-paper-plane"></i>
+                Send Message
+              </p>
+            </button>
           </div>
         </section>
       </aside>

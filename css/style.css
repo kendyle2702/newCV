@@ -573,7 +573,8 @@ footer {
   }
 
   .nav-mobile nav {
-    display: grid;
+    display: flex;
+    flex-direction: column;
   }
   .nav-mobile nav li {
     width: 100%;

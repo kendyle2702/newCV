@@ -18,6 +18,7 @@
       <div id="logo">
         <h1><span>CU</span> RESUME</h1>
       </div>
+      <div class="nav-overlay"></div>
       <nav>
         <ul>
           <li><a href="#detail-skills">Skills</a></li>
@@ -26,27 +27,7 @@
           <li><a href="#detail-contact">Contact</a></li>
         </ul>
       </nav>
-
-      <label for="nav-mobile-input" class="icon-nav"
-        ><i class="fa fa-bars"></i
-      ></label>
-      <input type="checkbox" id="nav-mobile-input" />
-      <label for="nav-mobile-input" class="nav-overlay"></label>
-      <div class="nav-mobile">
-        <label for="nav-mobile-input" class="nav-mobile-close">
-          <i class="fa fa-times" aria-hidden="true"></i>
-        </label>
-        <nav>
-          <ul>
-            <li>
-              <a href="#detail-skills">Skills</a>
-            </li>
-            <li><a href="#detail-experience"> Experience</a></li>
-            <li><a href="#detail-education">Education</a></li>
-            <li><a href="#detail-contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+      <button class="icon-nav"><i class="fa fa-bars"></i></button>
     </header>
     <main>
       <!-- Left side -->
@@ -242,33 +223,42 @@
           </div>
           <br />
 
-          <form class="detail-contact-box" action="xuly.html" method="get">
+          <form
+            id="form"
+            class="detail-contact-box"
+            action="xuly.html"
+            method="get"
+          >
             <div class="column-left">
               <div class="column-element">
                 <label for="first-name">First Name</label>
                 <div class="input-box">
                   <input
+                    id="firstname"
                     name="firstname"
                     type="text"
                     placeholder="Type first name"
                   />
                   <i class="fa fa-user"></i>
                 </div>
+                <span class="form-message"></span>
               </div>
 
               <div class="column-element">
                 <label for="email">Email</label>
                 <div class="input-box">
                   <input
+                    id="email"
                     name="email"
                     type="email"
                     placeholder="Type email address 1234@gmail.com"
                   />
                   <i class="fa fa-envelope"></i>
                 </div>
+                <span class="form-message"></span>
               </div>
               <div class="column-element">
-                <span>Support:</span>
+                <span class="child-title">Support:</span>
                 <br />
                 <select name="support" autofocus>
                   <option value="HTML">HTML</option>
@@ -276,6 +266,7 @@
                   <option value="JavaScript">JavaScript</option>
                   <option value="Database">Database</option>
                 </select>
+                <span class="form-message"></span>
               </div>
             </div>
 
@@ -284,44 +275,75 @@
                 <label for="last-name">Last Name</label>
                 <div class="input-box">
                   <input
+                    id="lastname"
                     name="lastname"
                     type="text"
                     placeholder="Type last name"
                   />
                   <i class="fa fa-user"></i>
                 </div>
+                <span class="form-message"></span>
               </div>
 
               <div class="column-element">
                 <label for="mobile-number">Mobile No</label>
                 <div class="input-box">
                   <input
+                    id="mobileNumber"
                     name="mobileNumber"
                     type="tel"
                     placeholder="Type phone No"
                   />
                   <i class="fa fa-phone"></i>
                 </div>
+                <span class="form-message"></span>
               </div>
 
-              <div class="column-element">
-                <span>Choose interests:</span>
+              <div id="interest" class="column-element">
+                <span class="child-title">Choose interests:</span>
                 <br />
-                <input type="checkbox" name="java" value="yes" />
-                <span>Java</span>
-                <input type="checkbox" name="csharp" value="yes" />
-                <span>CSharp</span>
-                <input type="checkbox" name="html" value="yes" /><span
-                  >HTML</span
-                >
-                <input type="checkbox" name="css" value="yes" /><span>CSS</span>
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  name="java"
+                  value="yes"
+                  checked
+                />
+                <span class="child-title">Java</span>
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  name="csharp"
+                  value="yes"
+                />
+                <span class="child-title">CSharp</span>
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  name="html"
+                  value="yes"
+                /><span class="child-title">HTML</span>
+                <input
+                  class="checkbox"
+                  type="checkbox"
+                  name="css"
+                  value="yes"
+                /><span class="child-title">CSS</span>
+                <span class="form-message"></span>
               </div>
             </div>
           </form>
-          <span>Comments or Message:</span>
-          <br />
-          <textarea name="content" cols="100" rows="4"></textarea>
-          <br />
+          <div class="message-element">
+            <span class="child-title">Comments or Message:</span>
+            <br />
+            <textarea
+              id="comment"
+              name="content"
+              cols="100"
+              rows="4"
+            ></textarea>
+            <span class="form-message"></span>
+          </div>
           <div class="contact-send">
             <button type="submit" id="send">
               <p class="send-message">
@@ -334,5 +356,23 @@
       </aside>
     </main>
     <footer>&copy; Copyright 2023, Design by Le Quoc Cu.</footer>
+    <script src="./js/main.js"></script>
+    <script>
+      // Mong muốn của chúng ta
+      Validator({
+        form: "#form",
+        errorSelector: ".form-message",
+        rules: [
+          Validator.isName("#firstname"),
+          Validator.isName("#lastname"),
+          Validator.isEmail("#email"),
+          Validator.isPhoneNumber("#mobileNumber"),
+        ],
+        elseRules: [
+          Validator.isCheckInterest("#interest"),
+          Validator.isComment("#comment"),
+        ],
+      });
+    </script>
   </body>
 </html>
